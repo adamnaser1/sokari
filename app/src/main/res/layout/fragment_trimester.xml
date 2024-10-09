@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#f9f9f9"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enregistrement des données trimestrielles"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:padding="16dp"
+        android:gravity="center"
+        android:textColor="#333333"/>
+
+    <EditText
+        android:id="@+id/dateEditText"
+        android:layout_width="358dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_background"
+        android:hint="Choisir la date"
+        android:padding="12dp" />
+
+    <Button
+        android:id="@+id/dateButton"
+        android:layout_width="262dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/cardview_dark_background"
+        android:text="Choisir une date"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:id="@+id/percentageEditText"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Entrer le pourcentage"
+        android:padding="12dp" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="162dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/design_default_color_primary"
+        android:text="Enregistrer"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/savedValuesTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Les valeurs enregistrées s'afficheront ici"
+        android:padding="16dp"
+        android:textColor="#333333"
+        android:background="#e1e1e1"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/nextAppointmentTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Prochain rendez-vous: "
+        android:textSize="16sp"
+        android:padding="16dp"
+        android:textColor="#FF0000"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>

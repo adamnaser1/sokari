@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="@color/white"
+    android:layout_marginBottom="8dp"
+    android:elevation="2dp"
+    android:clipToPadding="false">
+
+<TextView
+android:id="@+id/glucose"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Glycémie"
+android:textSize="18sp"
+android:textColor="@color/teal_700"
+android:textStyle="bold" />
+
+<TextView
+android:id="@+id/time"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Temps"
+android:textSize="16sp"
+android:textColor="@color/black"
+android:layout_marginTop="4dp" />
+
+<TextView
+android:id="@+id/situation"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Situation"
+android:textSize="16sp"
+android:textColor="@color/black"
+android:layout_marginTop="4dp" />
+
+<TextView
+android:id="@+id/insulin_dose"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Insuline"
+android:textSize="16sp"
+android:textColor="@color/black"
+android:layout_marginTop="4dp" />
+
+<TextView
+android:id="@+id/notes"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Notes :"
+android:textSize="16sp"
+android:textColor="@color/purple_700"
+android:layout_marginTop="4dp" />
+    </LinearLayout>
