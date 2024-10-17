@@ -57,7 +57,17 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/filter_date_button" />
-
+    <TextView
+        android:id="@+id/selected_point_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Sélectionnez un point"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line_chart" />
     <!-- Graphique Linéaire -->
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/line_chart"
@@ -69,18 +79,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_statistics" />
 
+
+
     <!-- Liste des données -->
     <ListView
         android:id="@+id/list_view"
         android:layout_width="0dp"
         android:layout_height="267dp"
         android:layout_margin="16dp"
-        android:layout_marginTop="16dp"
         android:divider="@android:color/darker_gray"
         android:dividerHeight="1dp"
         android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/line_chart" />
+        app:layout_constraintTop_toBottomOf="@+id/selected_point_info" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

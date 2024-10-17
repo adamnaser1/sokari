@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
@@ -21,6 +20,8 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -44,6 +45,25 @@ public class DashboardFragment extends Fragment {
 
         // Display data on startup
         displayData();
+
+        // Set chart value selected listener
+        lineChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+            @Override
+            public void onValueSelected(Entry e, Highlight h) {
+                int index = (int) e.getX(); // Get the selected point's index
+                Measurement selectedMeasurement = allMeasurements.get(index); // Get the corresponding measurement
+
+                // Display date and situation in the TextView
+                String info = "Date: " + selectedMeasurement.getTime() + "\nSituation: " + selectedMeasurement.getSituation();
+                binding.selectedPointInfo.setText(info);
+            }
+
+            @Override
+            public void onNothingSelected() {
+                // When nothing is selected, clear the text
+                binding.selectedPointInfo.setText("Sélectionnez un point");
+            }
+        });
 
         // Handle filter date button
         ImageButton filterDateButton = binding.filterDateButton;
@@ -78,7 +98,7 @@ public class DashboardFragment extends Fragment {
             String insulinDose = cursor.getString(4);
             String notes = cursor.getString(5);
 
-            measurements.add(new Measurement(glucose, time, situation, insulinDose,notes));
+            measurements.add(new Measurement(glucose, time, situation, insulinDose, notes));
         }
 
         cursor.close();
@@ -107,7 +127,7 @@ public class DashboardFragment extends Fragment {
             String insulinDose = cursor.getString(4);
             String notes = cursor.getString(5);
 
-            allMeasurements.add(new Measurement(glucose, time, situation, insulinDose,notes));
+            allMeasurements.add(new Measurement(glucose, time, situation, insulinDose, notes));
         }
 
         cursor.close();
@@ -142,7 +162,7 @@ public class DashboardFragment extends Fragment {
 
         for (Measurement measurement : measurements) {
             int value = measurement.getGlucose();
-            if (value >= 80 && value <= 125) normalCount++;
+            if (value >= 80 && value <= 140) normalCount++;
             else if (value < 80) lowCount++;
             else if (value > 190) highCount++;
         }
